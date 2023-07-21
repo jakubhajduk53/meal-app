@@ -6,28 +6,44 @@ const API_SITE_URL = process.env.REACT_APP_API_SITE_URL;
 
 function App() {
   const [currentMeal, setCurrentMeal] = useState({});
+  const [mealName, setMealName] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const fetchData = async (endpoint) => {
+  const fetchData = async () => {
     const { data, error } = await axios.get(
-      `${API_SITE_URL + API_KEY}/search.php?s=${endpoint}`
+      `${API_SITE_URL + API_KEY}/search.php?s=${mealName}`
     );
     if (error) {
       return;
     }
-    setCurrentMeal(data.meals[0]);
+    if (data.meals) {
+      console.log(data.meals[0]);
+      setCurrentMeal(data.meals[0]);
+    } else {
+      setErrorMessage(`${mealName} not found in our database`);
+    }
   };
 
   return (
     <div>
+      <input
+        className="border-2 rounded-xl"
+        type="text"
+        value={mealName}
+        onChange={(event) => {
+          setMealName(event.target.value);
+        }}
+      />
       <button
         className="bg-blue-500 border rounded-xl p-5"
         onClick={() => {
-          fetchData("Arrabiata");
+          fetchData();
         }}
       >
         SHOW RECIPE
       </button>
       <div>{currentMeal.strMeal}</div>
+      <div>{errorMessage}</div>
     </div>
   );
 }
