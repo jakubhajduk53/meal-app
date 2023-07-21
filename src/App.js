@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
+import Meal from "./components/Meal";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const API_SITE_URL = process.env.REACT_APP_API_SITE_URL;
 
 function App() {
-  const [currentMeal, setCurrentMeal] = useState({});
+  const [currentMeal, setCurrentMeal] = useState([]);
   const [mealName, setMealName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -17,8 +18,8 @@ function App() {
       return;
     }
     if (data.meals) {
-      console.log(data.meals[0]);
-      setCurrentMeal(data.meals[0]);
+      console.log(data.meals);
+      setCurrentMeal(data.meals);
     } else {
       setErrorMessage(`${mealName} not found in our database`);
     }
@@ -44,6 +45,11 @@ function App() {
       </button>
       <div>{currentMeal.strMeal}</div>
       <div>{errorMessage}</div>
+      <div className="grid place-content-center justify-items-center w-full h-auto gap-5">
+        {currentMeal?.map((meal) => {
+          return <Meal key={meal.idMeal} meal={meal} />;
+        })}
+      </div>
     </div>
   );
 }
