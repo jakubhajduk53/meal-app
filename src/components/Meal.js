@@ -1,3 +1,5 @@
+import { nanoid } from "nanoid";
+
 function Meal({ meal }) {
   const mealData = Object.entries(meal);
 
@@ -19,28 +21,31 @@ function Meal({ meal }) {
       return mealInfo[1];
     });
 
-  console.log(ingredients);
-  console.log(measures);
-
   return (
-    <div className="grid place-content-center justify-items-center w-[480px] h-[480px] border-2 rounded-xl">
-      <p className="text-lg">{meal?.strMeal}</p>
-      <img className="h-48 w-48 rounded-xl" src={meal?.strMealThumb} />
-      <label className="text-lg">Ingredients</label>
-      <div className="flex flex-row text-sm gap-2 border">
+    <div className="grid place-content-start justify-items-center w-[360px] md:w-[480px] h-[720px] border-2 rounded-xl hover:bg-slate-50">
+      <p className="text-lg md:text-2xl pb-2">{meal?.strMeal}</p>
+      <img
+        className="h-48 w-48 rounded-xl"
+        alt={meal?.strMeal}
+        src={meal?.strMealThumb}
+      />
+      <label className="text-lg mt-2">Ingredients</label>
+      <div className="flex flex-row text-sm gap-2 border overflow-y-scroll">
         <div>
           {ingredients.map((ingredient) => {
-            return <p key={ingredient}>{ingredient}</p>;
+            return <p key={nanoid()}>{ingredient}</p>;
           })}
         </div>
         <div>
           {measures.map((measure) => {
-            return <p key={measure}>{measure}</p>;
+            return <p key={nanoid()}>{measure}</p>;
           })}
         </div>
       </div>
-      <label className="text-lg">Instruction</label>
-      <p className="text-sm overflow-y-scroll">{meal?.strInstructions} </p>
+      <label className="text-lg mt-2">Instruction</label>
+      <p className="text-sm overflow-y-scroll pr-5 pl-5">
+        {meal?.strInstructions}{" "}
+      </p>
     </div>
   );
 }
