@@ -21,11 +21,12 @@ function App() {
       setCurrentMeal(data.meals);
     } else {
       setErrorMessage(`${mealName} not found in our database`);
+      setCurrentMeal([]);
     }
   };
 
   return (
-    <div>
+    <div className="grid">
       <SearchBar fetchData={fetchData} />
       <div>{errorMessage}</div>
       <div className="grid lg:grid-cols-2 2xl:grid-cols-3 place-content-center justify-items-center w-full h-auto gap-5">
