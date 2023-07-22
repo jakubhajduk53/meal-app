@@ -1,16 +1,16 @@
 import axios from "axios";
 import { useState } from "react";
 import Meal from "./components/Meal";
+import SearchBar from "./components/SearchBar";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const API_SITE_URL = process.env.REACT_APP_API_SITE_URL;
 
 function App() {
   const [currentMeal, setCurrentMeal] = useState([]);
-  const [mealName, setMealName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const fetchData = async () => {
+  const fetchData = async (mealName) => {
     const { data, error } = await axios.get(
       `${API_SITE_URL + API_KEY}/search.php?s=${mealName}`
     );
@@ -26,22 +26,7 @@ function App() {
 
   return (
     <div>
-      <input
-        className="border-2 rounded-xl"
-        type="text"
-        value={mealName}
-        onChange={(event) => {
-          setMealName(event.target.value);
-        }}
-      />
-      <button
-        className="bg-blue-500 border rounded-xl p-5"
-        onClick={() => {
-          fetchData();
-        }}
-      >
-        SHOW RECIPE
-      </button>
+      <SearchBar fetchData={fetchData} />
       <div>{errorMessage}</div>
       <div className="grid lg:grid-cols-2 2xl:grid-cols-3 place-content-center justify-items-center w-full h-auto gap-5">
         {currentMeal?.map((meal) => {
