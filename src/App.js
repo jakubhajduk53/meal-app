@@ -27,8 +27,10 @@ function App() {
 
   return (
     <div className="grid">
-      <SearchBar fetchData={fetchData} />
-      <div>{errorMessage}</div>
+      <SearchBar fetchData={fetchData} setErrorMessage={setErrorMessage} />
+      <div className="text-red-500 place-self-center md:text-lg">
+        {errorMessage}
+      </div>
       <div className="grid lg:grid-cols-2 2xl:grid-cols-3 place-content-center justify-items-center w-full h-auto gap-5">
         {currentMeal?.map((meal) => {
           return <Meal key={meal.idMeal} meal={meal} />;
