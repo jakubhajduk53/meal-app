@@ -18,7 +18,6 @@ function App() {
       return;
     }
     if (data.meals) {
-      console.log(data.meals);
       setCurrentMeal(data.meals);
     } else {
       setErrorMessage(`${mealName} not found in our database`);
@@ -43,9 +42,8 @@ function App() {
       >
         SHOW RECIPE
       </button>
-      <div>{currentMeal.strMeal}</div>
       <div>{errorMessage}</div>
-      <div className="grid place-content-center justify-items-center w-full h-auto gap-5">
+      <div className="grid lg:grid-cols-2 2xl:grid-cols-3 place-content-center justify-items-center w-full h-auto gap-5">
         {currentMeal?.map((meal) => {
           return <Meal key={meal.idMeal} meal={meal} />;
         })}
