@@ -1,4 +1,7 @@
 import { nanoid } from "nanoid";
+import Button from "./Button";
+import { AiOutlineYoutube } from "react-icons/ai";
+import { BsPatchQuestion } from "react-icons/bs";
 
 function Meal({ meal }) {
   const mealData = Object.entries(meal);
@@ -44,8 +47,30 @@ function Meal({ meal }) {
       </div>
       <label className="text-lg mt-2">Instruction</label>
       <p className="text-sm overflow-y-scroll pr-5 pl-5">
-        {meal?.strInstructions}{" "}
+        {meal?.strInstructions}
       </p>
+      <div className="flex justify-evenly w-full">
+        <Button
+          value="Youtube"
+          className="bg-red-600 text-white hover:bg-red-700"
+          icon={AiOutlineYoutube}
+          onClick={() => {
+            if (meal?.strYoutube) {
+              window.open(meal?.strYoutube);
+            }
+          }}
+        />
+        <Button
+          value="Source"
+          className="bg-green-600 text-white hover:bg-green-700"
+          icon={BsPatchQuestion}
+          onClick={() => {
+            if (meal?.strSource) {
+              window.open(meal?.strSource);
+            }
+          }}
+        />
+      </div>
     </div>
   );
 }
