@@ -25,13 +25,36 @@ function App() {
     }
   };
 
+  const fetchRandomMeal = async () => {
+    const { data, error } = await axios.get(
+      `${API_SITE_URL + API_KEY}/random.php`
+    );
+    if (error) {
+      return;
+    }
+    if (data.meals) {
+      setCurrentMeal(data.meals);
+    } else {
+      setCurrentMeal([]);
+    }
+  };
+
   return (
-    <div className="grid">
-      <SearchBar fetchData={fetchData} setErrorMessage={setErrorMessage} />
+    <div className="grid p-2">
+      <SearchBar
+        fetchData={fetchData}
+        setErrorMessage={setErrorMessage}
+        fetchRandomMeal={fetchRandomMeal}
+      />
       <div className="text-red-500 place-self-center md:text-lg">
         {errorMessage}
       </div>
-      <div className="grid lg:grid-cols-2 2xl:grid-cols-3 place-content-center justify-items-center w-full h-auto gap-5">
+      <div
+        className={
+          "grid place-content-center justify-items-center w-full h-auto gap-5 " +
+          (currentMeal.length >= 3 ? "lg:grid-cols-2 2xl:grid-cols-3" : "")
+        }
+      >
         {currentMeal?.map((meal) => {
           return <Meal key={meal.idMeal} meal={meal} />;
         })}
