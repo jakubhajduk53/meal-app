@@ -1,14 +1,17 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import Button from "./Button";
 
-const SearchBar = ({ fetchData, setErrorMessage }) => {
+const SearchBar = ({ fetchData, setErrorMessage, fetchRandomMeal }) => {
   const initialValues = {
     mealName: "",
   };
 
   const validationSchema = Yup.object({
-    mealName: Yup.string().min(3, "Must be at least 3 characters").required(""),
+    mealName: Yup.string()
+      .min(3, "Must be at least 3 characters")
+      .required("Input cannot be empty"),
   });
 
   const handleSubmit = (values, { setSubmitting }) => {
@@ -18,7 +21,7 @@ const SearchBar = ({ fetchData, setErrorMessage }) => {
   };
 
   return (
-    <div className="justify-self-center">
+    <div className="flex justify-self-center gap-2">
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -42,16 +45,16 @@ const SearchBar = ({ fetchData, setErrorMessage }) => {
                   />
                 )}
               </div>
-              <button
-                type="submit"
-                className="bg-blue-300 border rounded-xl h-12 pl-5 pr-5 text-lg"
-              >
-                Search
-              </button>
+              <Button type="submit" value="Search" />
             </div>
           </Form>
         )}
       </Formik>
+      <Button
+        value="Random dish"
+        className="bg-gradient-to-r from-purple-400 to-pink-500 hover:from-pink-400 hover:to-purple-500"
+        onClick={fetchRandomMeal}
+      />
     </div>
   );
 };
