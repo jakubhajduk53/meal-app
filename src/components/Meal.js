@@ -10,7 +10,8 @@ function Meal({ meal }) {
   const ingredients = mealData
     .filter(
       (mealInfo) =>
-        mealInfo[0].includes("Ingredient") && mealInfo[1].match(/^(?=.*\S).+$/)
+        mealInfo[0]?.includes("Ingredient") &&
+        mealInfo[1]?.match(/^(?=.*\S).+$/)
     )
     .map((mealInfo) => {
       return mealInfo[1];
@@ -19,7 +20,7 @@ function Meal({ meal }) {
   const measures = mealData
     .filter(
       (mealInfo) =>
-        mealInfo[0].includes("Measure") && mealInfo[1].match(/^(?=.*\S).+$/)
+        mealInfo[0]?.includes("Measure") && mealInfo[1]?.match(/^(?=.*\S).+$/)
     )
     .map((mealInfo) => {
       return mealInfo[1];
