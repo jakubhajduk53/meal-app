@@ -2,6 +2,7 @@ import { nanoid } from "nanoid";
 import Button from "./Button";
 import { AiOutlineYoutube } from "react-icons/ai";
 import { BsPatchQuestion } from "react-icons/bs";
+import Tag from "./Tag";
 
 function Meal({ meal }) {
   const mealData = Object.entries(meal);
@@ -46,10 +47,10 @@ function Meal({ meal }) {
         </div>
       </div>
       <label className="text-lg mt-2">Instruction</label>
-      <p className="text-sm overflow-y-scroll pr-5 pl-5">
+      <p className="text-sm overflow-y-scroll pr-5 pl-5 mb-2">
         {meal?.strInstructions}
       </p>
-      <div className="flex justify-evenly w-full">
+      <div className="flex justify-evenly w-full mb-2">
         <Button
           value="Youtube"
           className="bg-red-600 text-white hover:bg-red-700"
@@ -70,6 +71,10 @@ function Meal({ meal }) {
             }
           }}
         />
+      </div>
+      <div className="flex justify-center gap-2 w-full mb-2">
+        <Tag value={meal?.strCategory} />
+        <Tag value={meal?.strArea} />
       </div>
     </div>
   );
