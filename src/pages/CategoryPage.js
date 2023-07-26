@@ -18,7 +18,6 @@ function CategoryPage() {
       return;
     }
     if (data.meals) {
-      console.log(data.meals);
       setCategoryList(data.meals);
     } else {
       setCategoryList([]);
