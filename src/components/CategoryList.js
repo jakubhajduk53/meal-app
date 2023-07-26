@@ -4,7 +4,7 @@ import { nanoid } from "nanoid";
 
 function CategoryList({ items, type, handleClick }) {
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <div>
         {items.map((item) => {
           return (
@@ -21,7 +21,7 @@ function CategoryList({ items, type, handleClick }) {
         })}
       </div>
       {type === "items" ? (
-        <Button value="Go back" onClick={handleClick} />
+        <Button value="Go back" onClick={handleClick} className="mt-3 mb-3" />
       ) : null}
     </div>
   );

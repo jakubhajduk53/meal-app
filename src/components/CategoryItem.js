@@ -8,7 +8,7 @@ function CategoryItem({ value, className, onClick }) {
 
   return (
     <div onClick={onClick} className={categoryItemClasses}>
-      {value}
+      - {value}
     </div>
   );
 }

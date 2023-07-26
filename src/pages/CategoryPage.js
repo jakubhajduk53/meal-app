@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { nanoid } from "nanoid";
-import CategoryItem from "../components/CategoryItem";
 import CategoryList from "../components/CategoryList";
 
 function CategoryPage() {
@@ -52,7 +50,7 @@ function CategoryPage() {
 
   return (
     <div className="grid justify-items-center">
-      <p className="text-2xl">Categories</p>
+      <p className="text-3xl mb-3">Categories</p>
       <div>
         {isSelected ? (
           <CategoryList
