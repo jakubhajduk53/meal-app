@@ -1,8 +1,9 @@
 import classNames from "classnames";
 
-function CategoryItem({ value, className, onClick }) {
+function CategoryItem({ value, className, onClick, type }) {
   const categoryItemClasses = classNames(
-    "text-lg hover:text-blue-400 cursor-pointer",
+    "text-lg hover:text-blue-400",
+    type === "category" ? "cursor-pointer" : null,
     className
   );
 

@@ -11,6 +11,7 @@ function CategoryList({ items, type, handleClick }) {
             <CategoryItem
               key={nanoid()}
               value={type === "category" ? item?.strCategory : item?.strMeal}
+              type={type}
               onClick={() => {
                 if (type === "category") {
                   handleClick(item?.strCategory);
