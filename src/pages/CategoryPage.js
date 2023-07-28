@@ -1,50 +1,44 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import CategoryList from "../components/CategoryList";
+import { createSelector } from "@reduxjs/toolkit";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchCategories,
+  fetchCategoryItems,
+  resetCategoryItems,
+} from "../store/slices/categorySlice";
+
+const getCategories = (state) => state.categories.categoriesList;
+
+const selectCategories = createSelector(
+  [getCategories],
+  (categoriesList) => categoriesList
+);
+
+const getCategoryItems = (state) => state.categories.categoryItems;
+
+const selectCategoryItems = createSelector(
+  [getCategoryItems],
+  (categoryItems) => categoryItems
+);
 
 function CategoryPage() {
-  const API_KEY = process.env.REACT_APP_API_KEY;
-  const API_SITE_URL = process.env.REACT_APP_API_SITE_URL;
+  const dispatch = useDispatch();
 
-  const [categoryList, setCategoryList] = useState([]);
-  const [categoryItems, setCategoryItems] = useState([]);
   const [isSelected, setIsSelected] = useState(false);
 
-  const fetchCategories = async () => {
-    const { data, error } = await axios.get(
-      `${API_SITE_URL + API_KEY}/list.php?c=list`
-    );
-    if (error) {
-      return;
-    }
-    if (data.meals) {
-      setCategoryList(data.meals);
-    } else {
-      setCategoryList([]);
-    }
-  };
+  const categoriesList = useSelector(selectCategories);
 
-  const fetchCategoryItems = async (categoryName) => {
-    const { data, error } = await axios.get(
-      `${API_SITE_URL + API_KEY}/filter.php?c=${categoryName}`
-    );
-    if (error) {
-      return;
-    }
-    if (data.meals) {
-      setCategoryItems(data.meals);
-    } else {
-      setCategoryItems([]);
-    }
-  };
+  const categoryItems = useSelector(selectCategoryItems);
 
-  const handleClick = (categoryName) => {
+  const handleClick = async (categoryName) => {
     setIsSelected(true);
-    fetchCategoryItems(categoryName);
+    dispatch(fetchCategoryItems({ categoryName }));
   };
 
   useEffect(() => {
-    fetchCategories();
+    dispatch(fetchCategories());
+    dispatch(resetCategoryItems());
   }, []);
 
   return (
@@ -57,12 +51,12 @@ function CategoryPage() {
             type="items"
             handleClick={() => {
               setIsSelected(false);
-              setCategoryItems([]);
+              dispatch(resetCategoryItems());
             }}
           />
         ) : (
           <CategoryList
-            items={categoryList}
+            items={categoriesList}
             type="category"
             handleClick={handleClick}
           />
