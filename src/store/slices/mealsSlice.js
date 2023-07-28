@@ -1,4 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+const API_KEY = process.env.REACT_APP_API_KEY;
+const API_SITE_URL = process.env.REACT_APP_API_SITE_URL;
 
 export const fetchMeals = createAsyncThunk(
   "meal/fetchMeals",

@@ -8,7 +8,7 @@ import {
 
 const store = configureStore({
   reducer: {
-    meal: mealsReducer,
+    meals: mealsReducer,
   },
 });
 
