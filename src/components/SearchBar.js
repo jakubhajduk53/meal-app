@@ -2,8 +2,12 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Button from "./Button";
+import { useDispatch } from "react-redux";
+import { fetchRandomMeal, fetchMeals } from "../store";
 
-const SearchBar = ({ fetchData, setErrorMessage, fetchRandomMeal }) => {
+function SearchBar() {
+  const dispatch = useDispatch();
+
   const initialValues = {
     mealName: "",
   };
@@ -15,9 +19,13 @@ const SearchBar = ({ fetchData, setErrorMessage, fetchRandomMeal }) => {
   });
 
   const handleSubmit = (values, { setSubmitting }) => {
-    fetchData(values.mealName);
-    setErrorMessage("");
+    const { mealName } = values;
+    dispatch(fetchMeals({ mealName }));
     setSubmitting(false);
+  };
+
+  const getRandomMeal = async () => {
+    dispatch(fetchRandomMeal());
   };
 
   return (
@@ -53,10 +61,10 @@ const SearchBar = ({ fetchData, setErrorMessage, fetchRandomMeal }) => {
       <Button
         value="Random dish"
         className="bg-gradient-to-r from-purple-400 to-pink-500 hover:from-pink-400 hover:to-purple-500"
-        onClick={fetchRandomMeal}
+        onClick={getRandomMeal}
       />
     </div>
   );
-};
+}
 
 export default SearchBar;
