@@ -5,11 +5,28 @@ import {
   fetchMeals,
   fetchRandomMeal,
 } from "./slices/mealsSlice";
+import {
+  categoriesReducer,
+  selectCategories,
+  fetchCategories,
+  fetchCategoryItems,
+  resetCategoryItems,
+} from "./slices/categorySlice";
 
 const store = configureStore({
   reducer: {
     meals: mealsReducer,
+    categories: categoriesReducer,
   },
 });
 
-export { store, selectMeals, fetchMeals, fetchRandomMeal };
+export {
+  store,
+  selectMeals,
+  fetchMeals,
+  fetchRandomMeal,
+  selectCategories,
+  fetchCategories,
+  fetchCategoryItems,
+  resetCategoryItems,
+};
