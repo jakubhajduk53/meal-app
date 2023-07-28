@@ -1,15 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import {
-  mealReducer,
-  selectMeal,
-  fetchData,
+  mealsReducer,
+  selectMeals,
+  fetchMeals,
   fetchRandomMeal,
-} from "./slices/mealSlice";
+} from "./slices/mealsSlice";
 
 const store = configureStore({
   reducer: {
-    meal: mealReducer,
+    meal: mealsReducer,
   },
 });
 
-export { store, selectMeal, fetchData, fetchRandomMeal };
+export { store, selectMeals, fetchMeals, fetchRandomMeal };
