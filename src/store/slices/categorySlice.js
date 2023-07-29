@@ -42,16 +42,6 @@ const categoriesSlice = createSlice({
     loading: false,
   },
   reducers: {
-    selectCategories(state, action) {
-      state.selectedCar = {
-        id: action.payload.id,
-        name: action.payload.name,
-        year_of_production: action.payload.year_of_production,
-        price: action.payload.price,
-        location: action.payload.location,
-        image_url: action.payload.image_url,
-      };
-    },
     resetCategoryItems(state) {
       state.categoryItems = [];
     },
@@ -85,5 +75,5 @@ const categoriesSlice = createSlice({
   },
 });
 
-export const { selectCategories, resetCategoryItems } = categoriesSlice.actions;
+export const { resetCategoryItems } = categoriesSlice.actions;
 export const categoriesReducer = categoriesSlice.reducer;
