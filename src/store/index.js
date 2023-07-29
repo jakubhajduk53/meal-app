@@ -7,16 +7,22 @@ import {
 } from "./slices/mealsSlice";
 import {
   categoriesReducer,
-  selectCategories,
   fetchCategories,
   fetchCategoryItems,
   resetCategoryItems,
 } from "./slices/categorySlice";
+import {
+  areasReducer,
+  fetchAreas,
+  fetchAreaItems,
+  resetAreaItems,
+} from "./slices/areaSlice";
 
 const store = configureStore({
   reducer: {
     meals: mealsReducer,
     categories: categoriesReducer,
+    areas: areasReducer,
   },
 });
 
@@ -25,8 +31,10 @@ export {
   selectMeals,
   fetchMeals,
   fetchRandomMeal,
-  selectCategories,
   fetchCategories,
   fetchCategoryItems,
   resetCategoryItems,
+  fetchAreas,
+  fetchAreaItems,
+  resetAreaItems,
 };
