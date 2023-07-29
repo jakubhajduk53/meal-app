@@ -1,5 +1,5 @@
 import AreaItem from "./AreaItem";
-import Button from "./Button";
+
 import { nanoid } from "nanoid";
 import { useDispatch } from "react-redux";
 import { fetchMeals } from "../store";
@@ -31,9 +31,6 @@ function AreaList({ items, type, handleClick }) {
           );
         })}
       </div>
-      {type === "items" ? (
-        <Button value="Go back" onClick={handleClick} className="mt-3 mb-3" />
-      ) : null}
     </div>
   );
 }
