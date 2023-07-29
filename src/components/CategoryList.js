@@ -31,9 +31,6 @@ function CategoryList({ items, type, handleClick }) {
           );
         })}
       </div>
-      {type === "items" ? (
-        <Button value="Go back" onClick={handleClick} className="mt-3 mb-3" />
-      ) : null}
     </div>
   );
 }
