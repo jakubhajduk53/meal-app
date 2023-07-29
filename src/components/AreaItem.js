@@ -1,9 +1,8 @@
 import classNames from "classnames";
 
-function AreaItem({ value, className, onClick, type }) {
+function AreaItem({ value, className, onClick }) {
   const areaItemClasses = classNames(
-    "text-lg hover:text-blue-400",
-    type === "area" ? "cursor-pointer" : null,
+    "text-lg hover:text-blue-400 cursor-pointer",
     className
   );
 
