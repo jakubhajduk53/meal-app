@@ -10,12 +10,14 @@ import {
   fetchCategories,
   fetchCategoryItems,
   resetCategoryItems,
+  selectCategory,
 } from "./slices/categorySlice";
 import {
   areasReducer,
   fetchAreas,
   fetchAreaItems,
   resetAreaItems,
+  selectArea,
 } from "./slices/areaSlice";
 
 const store = configureStore({
@@ -37,4 +39,6 @@ export {
   fetchAreas,
   fetchAreaItems,
   resetAreaItems,
+  selectArea,
+  selectCategory,
 };

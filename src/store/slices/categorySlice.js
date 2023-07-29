@@ -38,12 +38,16 @@ const categoriesSlice = createSlice({
   initialState: {
     categoriesList: [],
     categoryItems: [],
+    selectedCategory: "",
     error: null,
     loading: false,
   },
   reducers: {
     resetCategoryItems(state) {
       state.categoryItems = [];
+    },
+    selectCategory(state, action) {
+      state.selectedCategory = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -75,5 +79,5 @@ const categoriesSlice = createSlice({
   },
 });
 
-export const { resetCategoryItems } = categoriesSlice.actions;
+export const { resetCategoryItems, selectCategory } = categoriesSlice.actions;
 export const categoriesReducer = categoriesSlice.reducer;

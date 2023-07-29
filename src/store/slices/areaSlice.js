@@ -35,12 +35,17 @@ const areasSlice = createSlice({
   initialState: {
     areasList: [],
     areaItems: [],
+    selectedArea: "",
     error: null,
     loading: false,
   },
   reducers: {
     resetAreaItems(state) {
       state.areaItems = [];
+      state.selectedArea = "";
+    },
+    selectArea(state, action) {
+      state.selectedArea = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -72,5 +77,5 @@ const areasSlice = createSlice({
   },
 });
 
-export const { resetAreaItems } = areasSlice.actions;
+export const { resetAreaItems, selectArea } = areasSlice.actions;
 export const areasReducer = areasSlice.reducer;
