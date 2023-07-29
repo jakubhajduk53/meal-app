@@ -1,8 +1,14 @@
 import AreaItem from "./AreaItem";
 import Button from "./Button";
 import { nanoid } from "nanoid";
+import { useDispatch } from "react-redux";
+import { fetchMeals } from "../store";
+import { useNavigate } from "react-router";
 
 function AreaList({ items, type, handleClick }) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col items-center">
       <div>
@@ -15,6 +21,10 @@ function AreaList({ items, type, handleClick }) {
               onClick={() => {
                 if (type === "area") {
                   handleClick(item?.strArea);
+                } else {
+                  const { strMeal } = item;
+                  dispatch(fetchMeals({ mealName: strMeal }));
+                  navigate("/");
                 }
               }}
             />
