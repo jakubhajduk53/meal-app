@@ -12,8 +12,8 @@ function Header() {
 
   const routes = {
     main: ["/"],
-    category: ["/category"],
-    area: ["/area"],
+    category: ["/category", "/category/list", "/category/items"],
+    area: ["/area", "/area/list", "/area/items"],
   };
 
   const isActive = (routeName) => {
@@ -35,13 +35,13 @@ function Header() {
       <RouterLink
         name="Category"
         icon={BiCategoryAlt}
-        to="/category"
+        to="category/list"
         active={isActive("category")}
       />
       <RouterLink
         name="Area"
         icon={AiOutlineFlag}
-        to="/area"
+        to="area/list"
         active={isActive("area")}
       />
     </div>
