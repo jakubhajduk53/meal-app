@@ -1,50 +1,37 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import AreaList from "../components/AreaList";
+import { createSelector } from "@reduxjs/toolkit";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAreaItems, fetchAreas, resetAreaItems } from "../store";
+
+const getAreas = (state) => state.areas.areasList;
+
+const selectAreas = createSelector([getAreas], (areasList) => areasList);
+
+const getAreaItems = (state) => state.areas.areaItems;
+
+const selectAreaItems = createSelector(
+  [getAreaItems],
+  (areaItems) => areaItems
+);
 
 function AreaPage() {
-  const API_KEY = process.env.REACT_APP_API_KEY;
-  const API_SITE_URL = process.env.REACT_APP_API_SITE_URL;
+  const dispatch = useDispatch();
 
-  const [areaList, setAreaList] = useState([]);
-  const [areaItems, setAreaItems] = useState([]);
   const [isSelected, setIsSelected] = useState(false);
 
-  const fetchAreas = async () => {
-    const { data, error } = await axios.get(
-      `${API_SITE_URL + API_KEY}/list.php?a=list`
-    );
-    if (error) {
-      return;
-    }
-    if (data.meals) {
-      setAreaList(data.meals);
-    } else {
-      setAreaList([]);
-    }
-  };
+  const areasList = useSelector(selectAreas);
 
-  const fetchAreaItems = async (areaName) => {
-    const { data, error } = await axios.get(
-      `${API_SITE_URL + API_KEY}/filter.php?a=${areaName}`
-    );
-    if (error) {
-      return;
-    }
-    if (data.meals) {
-      setAreaItems(data.meals);
-    } else {
-      setAreaItems([]);
-    }
-  };
+  const areaItems = useSelector(selectAreaItems);
 
-  const handleClick = (areaName) => {
+  const handleClick = async (areaName) => {
     setIsSelected(true);
-    fetchAreaItems(areaName);
+    dispatch(fetchAreaItems({ areaName }));
   };
 
   useEffect(() => {
-    fetchAreas();
+    dispatch(fetchAreas());
+    dispatch(resetAreaItems());
   }, []);
 
   return (
@@ -57,11 +44,11 @@ function AreaPage() {
             type="items"
             handleClick={() => {
               setIsSelected(false);
-              setAreaItems([]);
+              dispatch(resetAreaItems());
             }}
           />
         ) : (
-          <AreaList items={areaList} type="area" handleClick={handleClick} />
+          <AreaList items={areasList} type="area" handleClick={handleClick} />
         )}
       </div>
     </div>
