@@ -12,7 +12,7 @@ function AreaList({ items, type, handleClick }) {
   return (
     <div className="flex flex-col items-center">
       <div>
-        {items.map((item) => {
+        {items?.map((item) => {
           return (
             <AreaItem
               key={nanoid()}
