@@ -1,5 +1,4 @@
 import CategoryItem from "./CategoryItem";
-import Button from "./Button";
 import { nanoid } from "nanoid";
 import { useDispatch } from "react-redux";
 import { fetchMeals } from "../store";
@@ -12,7 +11,7 @@ function CategoryList({ items, type, handleClick }) {
   return (
     <div className="flex flex-col items-center">
       <div>
-        {items.map((item) => {
+        {items?.map((item) => {
           return (
             <CategoryItem
               key={nanoid()}
