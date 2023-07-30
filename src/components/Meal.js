@@ -3,8 +3,20 @@ import Button from "./Button";
 import { AiOutlineYoutube } from "react-icons/ai";
 import { BsPatchQuestion } from "react-icons/bs";
 import Tag from "./Tag";
+import { useNavigate } from "react-router";
+import {
+  fetchCategoryItems,
+  fetchAreaItems,
+  selectArea,
+  selectCategory,
+} from "../store";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 function Meal({ meal }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const mealData = Object.entries(meal);
 
   const ingredients = mealData
@@ -25,6 +37,14 @@ function Meal({ meal }) {
     .map((mealInfo) => {
       return mealInfo[1];
     });
+
+  useEffect(() => {
+    const { strCategory, strArea } = meal;
+    dispatch(fetchCategoryItems({ categoryName: strCategory }));
+    dispatch(selectCategory(strCategory));
+    dispatch(fetchAreaItems({ areaName: strArea }));
+    dispatch(selectArea(strArea));
+  }, []);
 
   return (
     <div className="grid place-content-start justify-items-center w-[360px] md:w-[480px] h-[720px] border-2 rounded-xl hover:bg-slate-50">
@@ -74,8 +94,18 @@ function Meal({ meal }) {
         />
       </div>
       <div className="flex justify-center gap-2 w-full mb-2">
-        <Tag value={meal?.strCategory} />
-        <Tag value={meal?.strArea} />
+        <Tag
+          value={meal?.strCategory}
+          onClick={() => {
+            navigate("category/items");
+          }}
+        />
+        <Tag
+          value={meal?.strArea}
+          onClick={() => {
+            navigate("area/items");
+          }}
+        />
       </div>
     </div>
   );
