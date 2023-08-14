@@ -4,18 +4,18 @@ import { fetchRandomMeal, fetchMeals } from "../store";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
+const validationSchema = Yup.object({
+  mealName: Yup.string()
+    .min(3, "Must be at least 3 characters")
+    .required("Input cannot be empty"),
+});
+
+const initialValues = {
+  mealName: "",
+};
+
 function SearchBar() {
   const dispatch = useDispatch();
-
-  const initialValues = {
-    mealName: "",
-  };
-
-  const validationSchema = Yup.object({
-    mealName: Yup.string()
-      .min(3, "Must be at least 3 characters")
-      .required("Input cannot be empty"),
-  });
 
   const handleSubmit = (values, { setSubmitting }) => {
     const { mealName } = values;
@@ -40,7 +40,7 @@ function SearchBar() {
               <div>
                 <Field
                   name="mealName"
-                  className="border-2 rounded-xl md:w-96 h-12"
+                  className="md:w-96 h-12 border-2 rounded-xl"
                   type="text"
                   placeholder="Search..."
                 />
