@@ -1,9 +1,9 @@
 import AreaItem from "./AreaItem";
 
-import { nanoid } from "nanoid";
 import { useDispatch } from "react-redux";
 import { fetchMeals } from "../store";
 import { useNavigate } from "react-router";
+import { nanoid } from "nanoid";
 
 function AreaList({ items, type, handleClick }) {
   const dispatch = useDispatch();

@@ -1,17 +1,16 @@
-import { nanoid } from "nanoid";
-import Button from "./Button";
-import { AiOutlineYoutube } from "react-icons/ai";
-import { BsPatchQuestion } from "react-icons/bs";
-import Tag from "./Tag";
-import { useNavigate } from "react-router";
+import { Button, Tag } from "./";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import {
   fetchCategoryItems,
   fetchAreaItems,
   selectArea,
   selectCategory,
 } from "../store";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useNavigate } from "react-router";
+import { nanoid } from "nanoid";
+import { AiOutlineYoutube } from "react-icons/ai";
+import { BsPatchQuestion } from "react-icons/bs";
 
 function Meal({ meal }) {
   const navigate = useNavigate();

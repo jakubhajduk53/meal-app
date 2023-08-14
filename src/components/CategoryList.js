@@ -1,8 +1,8 @@
-import CategoryItem from "./CategoryItem";
-import { nanoid } from "nanoid";
+import CategoryItem from "./";
 import { useDispatch } from "react-redux";
 import { fetchMeals } from "../store";
 import { useNavigate } from "react-router";
+import { nanoid } from "nanoid";
 
 function CategoryList({ items, type, handleClick }) {
   const dispatch = useDispatch();

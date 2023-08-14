@@ -1,9 +1,8 @@
-import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import Button from "./Button";
+import Button from "./";
 import { useDispatch } from "react-redux";
 import { fetchRandomMeal, fetchMeals } from "../store";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 function SearchBar() {
   const dispatch = useDispatch();
