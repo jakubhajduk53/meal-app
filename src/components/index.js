@@ -7,6 +7,7 @@ import Meal from "./Meal";
 import RouterLink from "./RouterLink";
 import SearchBar from "./SearchBar";
 import Tag from "./Tag";
+import Header from "./Header";
 
 export {
   AreaItem,
@@ -18,4 +19,5 @@ export {
   RouterLink,
   SearchBar,
   Tag,
+  Header,
 };
