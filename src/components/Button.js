@@ -2,7 +2,7 @@ import classNames from "classnames";
 
 function Button({ className, onClick, value, type, icon: Icon }) {
   const buttonClasses = classNames(
-    "flex gap-1 items-center bg-blue-300 border rounded-xl h-12 text-lg hover:bg-blue-400 pl-5 pr-5",
+    "flex gap-1 items-center bg-blue-300 border rounded-xl h-12 sm:text-lg hover:bg-blue-400 pl-1 pr-1 sm:pl-5 sm:pr-5",
     className
   );
 

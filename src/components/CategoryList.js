@@ -10,7 +10,7 @@ function CategoryList({ items, type, handleClick }) {
 
   return (
     <div className="flex flex-col items-center">
-      <div>
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 mt-5">
         {items?.map((item) => {
           return (
             <CategoryItem
