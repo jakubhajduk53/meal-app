@@ -1,4 +1,4 @@
-import CategoryItem from "./";
+import CategoryItem from "./CategoryItem";
 import { useDispatch } from "react-redux";
 import { fetchMeals } from "../store";
 import { useNavigate } from "react-router";

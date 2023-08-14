@@ -1,4 +1,5 @@
-import { Button, Tag } from "./";
+import Button from "./Button";
+import Tag from "./Tag";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {

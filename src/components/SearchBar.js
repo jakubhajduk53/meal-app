@@ -1,4 +1,4 @@
-import Button from "./";
+import Button from "./Button";
 import { useDispatch } from "react-redux";
 import { fetchRandomMeal, fetchMeals } from "../store";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -40,7 +40,7 @@ function SearchBar() {
               <div>
                 <Field
                   name="mealName"
-                  className="border-2 rounded-xl w-96 h-12"
+                  className="border-2 rounded-xl md:w-96 h-12"
                   type="text"
                   placeholder="Search..."
                 />
