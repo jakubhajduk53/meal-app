@@ -1,7 +1,6 @@
-import CategoryList from "../components/CategoryList";
-import { createSelector } from "@reduxjs/toolkit";
+import { CategoryList, Button } from "../components/";
 import { useSelector } from "react-redux";
-import Button from "../components/Button";
+import { createSelector } from "@reduxjs/toolkit";
 import { useNavigate } from "react-router";
 
 const getCategoryItems = (state) => state.categories.categoryItems;

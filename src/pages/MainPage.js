@@ -1,7 +1,6 @@
-import Meal from "../components/Meal";
-import SearchBar from "../components/SearchBar";
-import { createSelector } from "@reduxjs/toolkit";
+import { Meal, SearchBar } from "../components/";
 import { useSelector } from "react-redux";
+import { createSelector } from "@reduxjs/toolkit";
 import classNames from "classnames";
 
 const getMeals = (state) => state.meals.mealsList;

@@ -1,6 +1,5 @@
+import { AreaList } from "../components/";
 import { useEffect } from "react";
-import AreaList from "../components/AreaList";
-import { createSelector } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchAreaItems,
@@ -8,6 +7,7 @@ import {
   resetAreaItems,
   selectArea,
 } from "../store";
+import { createSelector } from "@reduxjs/toolkit";
 import { useNavigate } from "react-router";
 
 const getAreas = (state) => state.areas.areasList;

@@ -1,7 +1,7 @@
 import MainPage from "./pages/MainPage";
 import CategoryPage from "./pages/CategoryPage";
 import AreaPage from "./pages/AreaPage";
-import Header from "./components/Header";
+import { Header } from "./components/";
 import AreaItemsPage from "./pages/AreaItemsPage";
 import AreasListPage from "./pages/AreasListPage";
 import CategoryItemsPage from "./pages/CategoryItemsPage";

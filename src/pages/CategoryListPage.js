@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-import CategoryList from "../components/CategoryList";
-import { createSelector } from "@reduxjs/toolkit";
+import { CategoryList } from "../components/";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchCategories,
@@ -8,6 +7,7 @@ import {
   resetCategoryItems,
   selectCategory,
 } from "../store/slices/categorySlice";
+import { createSelector } from "@reduxjs/toolkit";
 import { useNavigate } from "react-router";
 
 const getCategories = (state) => state.categories.categoriesList;

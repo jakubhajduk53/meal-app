@@ -1,7 +1,6 @@
-import AreaList from "../components/AreaList";
-import { createSelector } from "@reduxjs/toolkit";
+import { AreaList, Button } from "../components/";
 import { useSelector } from "react-redux";
-import Button from "../components/Button";
+import { createSelector } from "@reduxjs/toolkit";
 import { useNavigate } from "react-router";
 
 const getAreaItems = (state) => state.areas.areaItems;
