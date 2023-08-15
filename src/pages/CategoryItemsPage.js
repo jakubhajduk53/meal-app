@@ -26,7 +26,9 @@ function CategoryItemsPage() {
 
   return (
     <div className="grid justify-items-center">
-      <p className="text-xl italic">{categoryName ? categoryName : null}</p>
+      <p className="text-xl sm:text-3xl italic">
+        {categoryName ? categoryName : null}
+      </p>
       <div>
         <CategoryList items={categoryItems} type="items" />
       </div>

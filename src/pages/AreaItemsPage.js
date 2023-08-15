@@ -26,7 +26,7 @@ function AreaItemsPage() {
 
   return (
     <div className="grid justify-items-center">
-      <p className="text-xl italic">{areaName ? areaName : null}</p>
+      <p className="text-xl sm:text-3xl italic">{areaName ? areaName : null}</p>
       <div>
         <AreaList items={areaItems} type="items" />
       </div>
