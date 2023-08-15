@@ -23,7 +23,8 @@ function Header() {
   }, [href]);
 
   return (
-    <div className="flex justify-evenly bg-slate-50 mb-2">
+    <div className="flex justify-evenly bg-aureolin mb-2 shadow-md">
+      <div className="text-3xl self-center select-none">Meal App</div>
       {headerInfo.map((header) => {
         return (
           <RouterLink

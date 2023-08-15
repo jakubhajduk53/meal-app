@@ -47,15 +47,15 @@ function Meal({ meal }) {
   }, []);
 
   return (
-    <div className="grid place-content-start justify-items-center w-[360px] md:w-[480px] h-[720px] border-2 rounded-xl hover:bg-slate-50">
+    <div className="grid place-content-start justify-items-center w-[360px] md:w-[480px] h-[720px] border-2 rounded-xl hover:bg-slate-50 shadow-md">
       <p className="text-lg md:text-2xl pb-2">{meal?.strMeal}</p>
       <img
-        className="h-48 w-48 rounded-xl"
+        className="h-48 w-48 rounded-xl shadow-md"
         alt={meal?.strMeal}
         src={meal?.strMealThumb}
       />
       <label className="text-lg mt-2">Ingredients</label>
-      <div className="flex flex-row text-sm gap-2 border overflow-y-scroll">
+      <div className="flex flex-row text-sm gap-2 border overflow-y-scroll shadow-md">
         <div>
           {ingredients.map((ingredient) => {
             return <p key={nanoid()}>{ingredient}</p>;

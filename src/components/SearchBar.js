@@ -40,7 +40,7 @@ function SearchBar() {
               <div>
                 <Field
                   name="mealName"
-                  className="md:w-96 h-12 border-2 rounded-xl"
+                  className="md:w-96 h-12 border rounded-xl shadow-md"
                   type="text"
                   placeholder="Search..."
                 />
