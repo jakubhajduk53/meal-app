@@ -22,3 +22,9 @@ export const headerData = [
     to: "area/list",
   },
 ];
+
+export const routes = {
+  main: ["/"],
+  category: ["/category", "/category/list", "/category/items"],
+  area: ["/area", "/area/list", "/area/items"],
+};
