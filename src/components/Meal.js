@@ -38,8 +38,9 @@ function Meal({ meal }) {
       return mealInfo[1];
     });
 
+  const { strCategory, strArea } = meal;
+
   useEffect(() => {
-    const { strCategory, strArea } = meal;
     dispatch(fetchCategoryItems({ categoryName: strCategory }));
     dispatch(selectCategory(strCategory));
     dispatch(fetchAreaItems({ areaName: strArea }));

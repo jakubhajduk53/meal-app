@@ -33,9 +33,9 @@ function AreasListPage() {
 
   return (
     <div className="grid justify-items-center">
-      <div>
+      <>
         <AreaList items={areasList} type="area" handleClick={handleClick} />
-      </div>
+      </>
     </div>
   );
 }

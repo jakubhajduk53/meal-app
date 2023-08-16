@@ -29,9 +29,9 @@ function CategoryItemsPage() {
       <p className="text-xl sm:text-3xl italic">
         {categoryName ? categoryName : null}
       </p>
-      <div>
+      <>
         <CategoryList items={categoryItems} type="items" />
-      </div>
+      </>
       <Button
         value="Go back"
         onClick={() => {

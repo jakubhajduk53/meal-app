@@ -10,7 +10,7 @@ import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
       <Routes>
         <Route path="/" element={<MainPage />} />
@@ -23,7 +23,7 @@ function App() {
           <Route path="items" element={<AreaItemsPage />} />
         </Route>
       </Routes>
-    </div>
+    </>
   );
 }
 

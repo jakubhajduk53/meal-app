@@ -36,13 +36,13 @@ function CategoryListPage() {
 
   return (
     <div className="grid justify-items-center">
-      <div>
+      <>
         <CategoryList
           items={categoriesList}
           type="category"
           handleClick={handleClick}
         />
-      </div>
+      </>
     </div>
   );
 }
