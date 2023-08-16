@@ -1,7 +1,7 @@
 import RouterLink from "./RouterLink";
 import { useState, useEffect } from "react";
 import { useHref } from "react-router";
-import { headerInfo } from "../data/descriptions";
+import { headerData } from "../data/descriptions";
 
 function Header() {
   const href = useHref();
@@ -24,8 +24,8 @@ function Header() {
 
   return (
     <div className="flex justify-evenly bg-aureolin mb-2 shadow-md">
-      <div className="text-3xl self-center select-none">Meal App</div>
-      {headerInfo.map((header) => {
+      <div className="text-3xl self-center">Meal App</div>
+      {headerData.map((header) => {
         return (
           <RouterLink
             name={header.name}

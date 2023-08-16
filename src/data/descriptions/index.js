@@ -2,7 +2,7 @@ import { AiOutlineFlag } from "react-icons/ai";
 import { BiCategoryAlt } from "react-icons/bi";
 import { AiOutlineHome } from "react-icons/ai";
 
-export const headerInfo = [
+export const headerData = [
   {
     name: "Main Page",
     value: "main",
