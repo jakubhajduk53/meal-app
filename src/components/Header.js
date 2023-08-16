@@ -28,6 +28,7 @@ function Header() {
       {headerData.map((header) => {
         return (
           <RouterLink
+            key={header.name}
             name={header.name}
             icon={header.icon}
             to={header.to}
