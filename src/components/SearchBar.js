@@ -2,13 +2,7 @@ import Button from "./Button";
 import { useDispatch } from "react-redux";
 import { fetchRandomMeal, fetchMeals } from "../store";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-
-const validationSchema = Yup.object({
-  mealName: Yup.string()
-    .min(3, "Must be at least 3 characters")
-    .required("Input cannot be empty"),
-});
+import { searchBarValidationSchema } from "../data/validation";
 
 const initialValues = {
   mealName: "",
@@ -31,7 +25,7 @@ function SearchBar() {
     <div className="flex justify-self-center gap-2">
       <Formik
         initialValues={initialValues}
-        validationSchema={validationSchema}
+        validationSchema={searchBarValidationSchema}
         onSubmit={handleSubmit}
       >
         {({ touched }) => (
