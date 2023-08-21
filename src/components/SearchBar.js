@@ -37,10 +37,10 @@ function SearchBar() {
         {({ touched }) => (
           <Form>
             <div className="flex gap-2 pb-5">
-              <>
+              <div>
                 <Field
                   name="mealName"
-                  className="md:w-96 h-12 border rounded-xl shadow-md"
+                  className="md:w-96 h-12 border rounded-xl shadow-md pl-5"
                   type="text"
                   placeholder="Search..."
                 />
@@ -51,7 +51,7 @@ function SearchBar() {
                     className="text-red-500"
                   />
                 )}
-              </>
+              </div>
               <Button type="submit" value="Search" />
             </div>
           </Form>
